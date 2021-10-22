@@ -11,6 +11,7 @@ export class FeedComponent implements OnInit {
   listPost!: Post[];
   post: Post = new Post;
   nome!: string;
+  search = '';
 
   constructor(private postService: PostService) { }
 
@@ -19,17 +20,31 @@ export class FeedComponent implements OnInit {
   }
 
   findPosts() {
-    this.postService.getPosts().subscribe( (data: any) => {
+    this.postService.getPosts()
+      .subscribe( (data: any) => {
       this.listPost = data;
       
     })
   }
 
   cadastrarMensagem() {
-    this.postService.postMensagem(this.post).subscribe((data: any) => {
+    this.postService.postMensagem(this.post)
+      .subscribe((data: any) => {
       this.post = data
       location.assign('/feed')
     })
+  }
+
+  searchName(): void { 
+    this.postService.findByName(this.search)
+      .subscribe(
+        data => {
+          this.listPost = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
   }
 
 }
