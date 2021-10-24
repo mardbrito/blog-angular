@@ -3,16 +3,18 @@
     <form>
       <div class="form-group">
         <label for="nome">Nome</label>
-        <input type="text" class="form-control" id="nome" placeholder="digite seu nome">
+        <input type="text" class="form-control" id="nome" [formControl]="nameFormControl" placeholder="digite seu nome">
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" placeholder="name@example.com">
+        <input type="email" class="form-control" id="email" [formControl]="emailFormControl" placeholder="name@example.com">
       </div>
       <div class="form-group">
         <label for="mensagem">Mensagem</label>
-        <textarea class="form-control" id="mensagem" rows="3"></textarea>
+        <textarea class="form-control" id="mensagem" rows="3" [formControl]="messageFormControl" ></textarea>
       </div>
-      <button class="btn btn-outline-dark">Enviar</button>
+      <button [disabled]="emailFormControl.invalid || nameFormControl.invalid || loading" class="btn btn-outline-dark" (click)="register()">
+        {{buttionText}}
+      </button>
     </form>
   </div>
