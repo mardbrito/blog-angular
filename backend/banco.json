@@ -2,7 +2,7 @@
   "posts": [
     {
       "id": 1,
-      "nome": "marcelo",
+      "nome": "Marcelo",
       "mensagem": "Seja bem vindo ao meu blog pessoal!"
     },
     {
@@ -21,9 +21,14 @@
       "id": 4
     },
     {
-      "nome": "marcelo",
+      "nome": "Marcelo",
       "mensagem": "Learning more about AngularJs.",
       "id": 5
+    },
+    {
+      "nome": "Eliane Brito",
+      "mensagem": "Avaliando como ficou o modelo do blog para definir a arte final.",
+      "id": 6
     }
   ]
 }

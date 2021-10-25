@@ -1,15 +1,16 @@
 <div class="container">
   <div class="row mt-5 mb-5">
-    <div class="col-md-4">
+    <div class="col-md-4 col-lg-4 d-flex justify-content-center">
       <div class="card border-0" style="width: 18rem;">
         <div class="d-flex justify-content-center">
           <img src="./../../assets/perfil.jpeg" class="card-img-top rounded-circle w-75" alt="Foto do usuário">
         </div>
         <div class="card-body">
-          <h5 class="card-title text-center">Marcelo</h5>
+          <h5 class="card-title text-center">{{ author }}</h5>
           <p class="card-text text-center">Desenvolvedor Web </p>
           <a href="https://github.com/mardbrito" target="_blank"
-            class="btn btn-outline-dark d-flex justify-content-center">Github</a>
+            class="btn btn-outline-dark d-flex justify-content-center">
+            <fa-icon [icon]="faGitHub"></fa-icon>&nbsp; Github</a>
 
           <hr class="mt-4 mb-4">
 
@@ -21,7 +22,7 @@
       </div>
     </div>
 
-    <div class="col-md-8">
+    <div class="col-md-8 col-lg-8">
       <div>
         <h3 class="text-center mb-4 text-monospace">Digite abaixo os seus comentários:</h3>
 
@@ -44,16 +45,20 @@
 
       <h3 class="text-center mb-5 text-monospace">Comentários adicionados</h3>
       <div class="container">
-        <div class="card mb-4" *ngFor="let post of listPost">
+        <div class="card mb-2" *ngFor="let post of listPost">
+        
           <div class="card-header">
-            <h5 class="card-tile">{{post.id}}</h5>
+            {{ post.nome }}
           </div>
           <div class="card-body">
-            <p class="card-text">{{post.nome}}</p>
-            <p class="card-text">{{post.mensagem}}</p>
+            <blockquote class="blockquote mb-0">
+              <p>{{ post.mensagem }}</p>
+              <footer class="blockquote-footer">ID #<cite title="Source Title">{{ post.id }}</cite></footer>
+            </blockquote>
           </div>
 
         </div>
+
       </div>
     </div>
   </div>
